@@ -1,0 +1,30 @@
+name: Build and Test Azure Function
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+      - dev
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.0'  # Change to the desired .NET SDK version
+
+    - name: Restore dependencies
+      run: dotnet restore testAzFunction/testAzFunction.csproj
+
+    - name: Build Azure Function
+      run: dotnet build --configuration Release testAzFunction/testAzFunction.csproj
+
+    - name: Run tests
+      run: dotnet test --no-build --configuration Release testAzFunction/testAzFunction.csproj
