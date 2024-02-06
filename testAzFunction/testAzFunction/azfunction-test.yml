@@ -18,7 +18,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'  # Change to the desired .NET SDK version
+        dotnet-version: '6.0.0'  # Change to the desired .NET SDK version
 
     - name: Restore dependencies
       run: dotnet restore testAzFunction/testAzFunction.csproj
