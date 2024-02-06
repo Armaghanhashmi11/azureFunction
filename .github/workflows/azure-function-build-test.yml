@@ -21,10 +21,10 @@ jobs:
         dotnet-version: '6.0'  
 
     - name: Restore dependencies
-      run: dotnet restore testAzFunction/testAzFunction.csproj
+      run: dotnet restore testAzFunction/testAzFunction/testAzFunction/testAzFunction.csproj
 
     - name: Build Azure Function
-      run: dotnet build --configuration Release testAzFunction/testAzFunction.csproj
+      run: dotnet build --configuration Release testAzFunction/testAzFunction/testAzFunction/testAzFunction.csproj
 
     - name: Run tests
-      run: dotnet test --no-build --configuration Release testAzFunction/testAzFunction.csproj
+      run: dotnet test --no-build --configuration Release testAzFunction/testAzFunction/testAzFunction/testAzFunction.csproj
